@@ -354,9 +354,9 @@ There are some decisions and features that were implemented with the intent of i
 
 ## Authors
 
-- Daniel Francisco (98188)
-- Martinho Tavares (98262)
-- Miguel Monteiro (98157)
+- [danyjf](https://github.com/danyjf)
+- [martinhoT](https://github.com/martinhoT)
+- [LazyProgramer](https://github.com/LazyProgramer)
 
 ## Sources
 - CSS theme for the UAP adapted from: https://codepen.io/boudra/pen/YXzLBN

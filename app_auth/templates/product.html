@@ -1,0 +1,29 @@
+{% extends "base.html" %}}
+
+{% block title %}{{product[0]}}{% endblock %}}
+
+{% block content %}
+<div class="shop">
+    <div class="heading">
+        <div class="row">
+            <div class="collum">
+                <div class="card">
+                    <img alt src="{{ product[3] }}" style="width: 200px;">
+                    <div class="container">
+                        <h4><b>{{ uc.normalize_product_name(product[0]) }}</b></h4>
+                        <p>{{ product[1] }}</p>
+                        {{ product[2] }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            {% if logged_in %}
+                <form method="post">
+                    <button type="submit" value="add-to-cart" class="btn btn-primary">Add to cart</button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

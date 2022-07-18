@@ -1,0 +1,39 @@
+{% extends "base.html" %}}
+
+{% block title %}Login{% endblock %}}
+
+{% block content %}
+<!-- <div class="login"> -->
+    <div class="heading wrapper">
+        {% if error!=None %}
+        <div class="alert-danger" style="width: 320px;">{{ error }}</div>
+        {% endif %}
+        <form action="#" method="post" class="login">
+            {% if has_master_password %}
+            <p class="title">Log in <i style="font-size:small">with the master password</i></p>
+            {% else %}
+            <p class="title">Register <i style="font-size:small">a master password</i></p>
+            {% endif %}
+
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input type="password" class="form-control login_input" name="master_password" placeholder="Master Password" autofocus>
+            </div>
+
+            {% if has_master_password %}
+            <button type="submit" name="login" class="login_button">
+                <span class="state">Log in</span>
+            </button>
+
+            <input name="type" value="login" hidden/>
+            {% else %}
+            <button type="submit" name="register_master_password" class="login_button">
+                <span class="state">Register</span>
+            </button>
+
+            <input name="type" value="register_master_password" hidden/>
+            {% endif %}
+        </form>
+    </div>
+<!-- </div> -->
+{% endblock %}

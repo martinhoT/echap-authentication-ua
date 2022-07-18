@@ -1,0 +1,47 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}Cart{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-8">
+            {% for product in data %}
+                <div class="row">
+                    <div class="col-2">
+                        <a href="/shop/{{ product[0] }}">
+                            <img src="{{ product[3] }}" alt="", style="width: 150px;">
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="/shop/{{ product[0] }}" class="link-without-style">
+                            <p id="cart-name">{{ product[0] }}</p>
+                        </a>
+                        <p id="cart-description">{{ product[2] }}</p>
+                    </div>
+                    <div class="col-2">
+                        <p id="cart-item-price">{{ product[1] }} €</p>
+                    </div>
+                    <div class="col-1">
+                        <p id="cart-item-qty">{{ product[4] }}</p>
+                    </div>
+                    <div class="col-1">
+                        <a href="/cart/remove?product={{ product[0] }}">
+                            <button type="button" class="close" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-4 text-center" id="cart-payment-col">
+            <p><span id="cart-total-text">TOTAL</span><span id="cart-total-price">{{ data | sum(attribute=1) }} €</span></p>
+            <button id="cart-pay-btn" type="button" class="btn btn-dark">Purchase</button>
+        </div>
+    </div>
+    <div>
+        <a id="cart-clear" href="/cart/remove" class="btn btn-danger">Remove all</a>
+    </div>
+</div>
+{% endblock %}

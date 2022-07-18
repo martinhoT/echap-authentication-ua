@@ -1,0 +1,34 @@
+{% extends "base.html" %}}
+
+{% block title %}Shop{% endblock %}}
+
+{% block content %}
+<div class="shop">
+    <div class="heading">
+        <h2 class="my-5 text-center">Products</h2>
+        <div style="padding: 6px;">
+            <form action="#" method="post">
+            <input type="text" name="searchFor">
+            <button type="submit" name="search" class="float">Search</button>
+            </form>
+        </div>
+        <div class="row">
+            {% for row in data %}
+            <div class="collum col-12 col-sm-6 col-md-3">
+                <div class="card text-center mb-5">
+                    <a href="http://localhost:5000/shop/{{ row[0] }}" target="_self" rel="noopener noreferrer">
+                    <div class="image_align ">
+                        <img alt src="{{ row[3] }}" style="width: 150px;">
+                    </div>
+                    </a>
+                    <div class="container">
+                        <h4 class="my-3"><b>{{ uc.normalize_product_name(row[0]) }}</b></h4>
+                        <p>{{ row[1] }}€</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
